@@ -1,0 +1,83 @@
+{% extends "base2.html" %}
+
+{% block title %}
+	{% if tag %}
+		Propuestas de {{tag}} 
+	{%else%}
+		Propuestas de programa
+	{% endif %}
+	{% endblock %} 
+{% block scripts %}
+<script>
+$(document).ready(function() {
+	/*$(".sector").each(function() {
+		var sector = $(this).text();
+		sector = sector.replace(/-/g, ' ');
+		$(this).html('<strong>'+sector+'</strong>');
+	});*/
+
+	area="{{tag}}"
+	infoObjetivo=apuestas[area];
+	if(infoObjetivo!=null){
+		$('.objetivo-descripcion').empty().html(infoObjetivo.descripcion)
+		$('.objetivo-titulo').empty().html(infoObjetivo.titulo)
+	}
+
+	$.each(listobjetivos.objetivos, function(index,jsonObject){	   
+			if(jsonObject.apuesta==area) 
+	        $('#objetivos-area-'+area).append('<div class="col-xs-6"><a href="sector.php?sector='+jsonObject.id+'"><div class="objetivo "> ' +jsonObject.titulo+'</div></a></div>');	   
+	});
+
+	
+});
+
+</script>
+{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 > <small><i>Área temática:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
+			<p class="objetivo-descripcion"> </p>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+		Esta área se compone de los siguientes objetivos que puedes explorar:
+		</div>		
+	</div>
+	<div class="row" id="programa" >
+		<div class="objetivos-container" id="col-{{tag}}">
+			<div id="objetivos-area-{{tag}}"> 
+			</div>
+		</div>		
+	</div>
+	
+	
+	
+
+	{% if user %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h4 class="text-center"> ¿Te gustaría proponer algo para Burjassot? </h4>
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php">SUBIR UNA NUEVA MEDIDA</a>
+		</div>
+	</div>	
+	{% else %}
+	<div class="row">
+		<div class="col-xs-12">
+			<a href="login.php"> Tienes que estar identificado para hacer una propuesta. ¡Registrate y participa!</a>
+		</div>
+	</div>
+	{% endif %}
+
+	
+
+	<script>
+	
+	$('#myTab a').click(function (e) {
+	  	e.preventDefault();
+	  	$(this).tab('show');
+	})
+	</script>
+{% endblock%}

@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Programa colaborativo {% endblock %}
+
+{% block scripts %}
+<script>
+	$(document).ready(function() {
+
+		$("img.sector").mouseover(function(){
+			$(this).css('opacity',1);
+	 	});
+	 	$("img.sector").mouseout(function(){
+			$(this).css('opacity',0.9);
+		});
+		$("img.sector").click(function() { 
+			var i=$(this).attr('id');
+            document.location = "sector.php?sector="+ i;
+	 	});
+		$(".barrio").mouseover(function(){
+			$(this).attr('fill-opacity',1);
+	 	});
+	 	$(".barrio").mouseout(function(){
+			$(this).attr('fill-opacity',0.5);	
+		});
+		$(".barrio").click(function() { 
+			var i=$(this).attr('id');
+            document.location = "barrio.php?barrio="+ i;
+	 	});
+
+	$(".sector").each(function() {
+		var sector = $(this).text();
+		sector = sector.replace(/-/g, ' ');
+		$(this).html('<strong>'+sector+'</strong>');
+	});
+
+
+	$( "#distritos-inner" ).on('change','select',function() {
+			if($(this).val()!='none'){
+				$('a#ir_propuestas_barrios').attr('href','barrio.php?barrio='+$(this).val());
+				$('a#ir_propuestas_barrios').removeClass('disabled')
+			}
+			else{
+				$('a#ir_propuestas_barrios').addClass('disabled')
+			}
+	});
+	if(Math.random()>0.5){
+		$('#tabsIndex a[href="#recientes"]').tab('show')
+	}
+	else{
+		$('#tabsIndex a[href="#consensuadas"]').tab('show')	
+	}
+});
+
+</script>
+	<script>
+	
+	$('#myTab a').click(function (e) {
+	  	e.preventDefault();
+	  	$(this).tab('show');
+	})
+	</script>
+
+<script src="static/js/main.js"></script>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container principal">
+	<!-- <div class="row">
+		<div class="col-xs-12">
+			<h1 class="center">PLATAFORMA DE PROGRAMA COLABORATIVO</h1>
+		</div>
+	</div> -->
+
+	<div class="row" >
+		<div class="col-md-10 col-md-offset-1 " id="intro-text" >
+			<p class="text-left">Bienvenido/a a la plataforma colaborativa del programa de Totes amb Burjassot. <br/>Aquí podréis <strong> comentar, añadir y votar propuestas:</strong> necesitamos vuestras ideas para <strong>componer el programa que Burjassot necesita. <br/>La plataforma estará abierta hasta el  </strong>  <span style="text-decoration:line-through;">día 20 de marzo </span> </strong> <strong style="color:red">Sábado 21 de Marzo a las 23:59</strong> ¡Muchas gracias por participar!</p>
+		</div>
+	</div>	
+	
+	<div class="row" >
+		<div class="col-md-4 col-md-offset-1 col-sm-6" >
+			<a class="btn btn-success btn-lg btn-block" href="#programa" style="margin-top: 2em;">EXPLORA LAS PROPUESTAS</a>
+		</div>
+		<div class="col-md-4 col-md-offset-2 col-sm-6">
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php" style="margin-top: 2em;">SUBE UNA NUEVA PROPUESTA</a>
+		</div>
+	</div>	
+	
+
+		<h2 class="custom" style="font-size:1.8em; text-align:left">Ya hemos recibido <strong>{{ totalPropuestas }} propuestas.</strong> Algunas son: </h2>
+
+
+	<div class="row">
+		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinando(8-20 votos)</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+		</ul>
+	</div>
+	{% include 'listados.html' %}
+	<!--</div>  bug en listados parece que falta este div? -->
+	<div class="row">
+	 	<div class="col-xs-12 col-lg-8  col-lg-offset-2" style="text-align:center" > 
+	 		<h3>Estas son sólo algunas de las propuestas: <a href="todas.php"> míralas todas aquí</a> </h3>
+	 		<h4><a href="#programa"> También puedes explorar el programa por objetivos</a> o buscar:</h4>
+	 	</div>
+	</div>
+	<div class="row" style="padding-top:2em;">		
+		<div class="col-md-8  col-md-offset-2">
+			<form role="form" id="search-form" action="buscar.php" method="post">
+				<div class="col-xs-12  col-md-6">		
+				  	<div class="form-group">	    	
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar...(ojo: los acentos importan)" />				    	
+					</div>
+				</div>
+				<div class="col-xs-12  col-md-6">	
+				  	<button type="submit" class="btn btn-default btn-success btn-block">¡Buscar!</button>
+				  	<input type="hidden" name="page" id="page" value="1" />
+				</div>
+			</form>	
+		</div>	
+	</div>
+	
+	<div id="programa">
+		<div class ="row">
+		 	<div class="col-xs-12"  > 
+				<a name="sectores"></a><h2 class="custom">Explora el programa por objetivos</h2>
+			<h4>El programa se estructura en 4 grandes áreas. Cada área a su vez se compone de objetivos y dentro de estos objetivos se encuadran las medidas. Las apuestas y los objetivos han sido definidos en los foros sectoriales. En esta plataforma web vamos a proponer y a votar las medidas concretas.</h4>
+			</div>
+		</div>
+		<div class="row" id="areas-container">
+			      
+		</div>
+	</div>
+</div> <!-- container -->
+<div id="distritos">
+	<div class="container">
+		<div class="row">
+			<h2 class="custom">Explora el programa por distritos</h2>
+		</div>
+		<div class="row" id="distritos-inner">
+			<div class="col-sm-6 hidden-xs">
+				<div id="canvas">
+	            	<div id="paper"></div>
+	        	</div>
+	        </div>
+	        <div class="col-sm-6">
+	        	<div id="info-distrito">
+	        		<div id="nombre-distrito">
+	        			<div class="form-group">
+						      <select value="none" id="distritoSelect" class="form-control">
+						        <option value="none">Click para seleccionar distrito</option>
+						      </select>
+						  </div> 
+						</div> 
+	        		<div id="datos-distrito"> </div>
+	        	</div>
+	        	<a class="btn btn-default btn-lg btn-success disabled" href="#" id="ir_propuestas_barrios" role="button">¡Explora las propuestas de este distrito!</a>
+	        	<div class="info-ayuda">
+	        		Nota: Sólo algunas de las propuestas incluidas están asociadas a un distrito en concreto, un gran número hacen referencia a toda la ciudad.
+	        	</div>
+	        </div>
+		</div>
+	</div>
+</div>
+	
+
+
+
+
+{% endblock %}

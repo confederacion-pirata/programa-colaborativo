@@ -1,0 +1,149 @@
+{% extends "base2.html" %}
+
+{% block title %}
+	{% if tag %}
+		Propuestas de {{tag}} 
+	{%else%}
+		Propuestas de programa
+	{% endif %}
+	{% endblock %} 
+{% block scripts %}
+<script>
+function getUrlVars() {
+		mstring = String( document.location.href ).replace( "#", "" );
+	var vars = {};
+	var parts = mstring.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	    vars[key] = value;
+	});
+	return vars;
+}
+$(document).ready(function() {
+	/*$(".sector").each(function() {
+		var sector = $(this).text();
+		sector = sector.replace(/-/g, ' ');
+		$(this).html('<strong>'+sector+'</strong>');
+	});*/
+
+	obj="{{tag}}"
+	infoObjetivo=getObjetivo(obj);
+	if(infoObjetivo!=null){
+		$('.objetivo-descripcion').empty().html(infoObjetivo.descripcion)
+		$('.objetivo-titulo').empty().html(infoObjetivo.titulo)
+	}	
+
+	$('.pagination a').click(function(){
+		$.cookie('defaultTab', $('#tabsIndex li.active a').attr('href') );
+	});
+
+	if(getUrlVars()['page'] != undefined ){
+		//console.log("entrando 1")
+		if($.cookie('defaultTab') != undefined){
+			$('#tabsIndex a[href="'+$.cookie('defaultTab')+'"]').tab('show')
+		//	console.log($.cookie('defaultTab'));	
+		}
+	}else{
+		console.log("entrando")
+		if(Math.random()>0.5){
+			$('#tabsIndex a[href="#recientes"]').tab('show')
+		//	console.log("recientes");
+		}
+		else{
+			{% if tag %} // este bloque es el de listado de sector
+				$('#tabsIndex a[href="#debatidas"]').tab('show')
+			{% else %}
+				$('#tabsIndex a[href="#consensuadas"]').tab('show')
+			{% endif %}
+		}
+	}
+	
+});
+
+</script>
+{% endblock %}
+{% block content %}
+
+	{% if tag %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 > <small><i>objetivo:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
+			<p class="objetivo-descripcion"> </p>
+
+		</div>
+	</div>
+	{% endif %}
+
+	{% if totalPropuestas %}
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 > <small>Hay {{totalPropuestas}} propuestas en total en nuestra base de datos</small> </h2>
+		</div>
+	</div>
+
+	<!--<div class="row"> <h5 style="color:#777">Puedes buscar... </h5 ></div> -->
+	<div class="row">		
+			<form role="form" id="search-form" action="buscar.php" method="post">
+				<div class="col-xs-12  col-md-6">		
+				  	<div class="form-group">			    	
+				  		
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar..." />
+				    	
+					</div>
+				</div>
+				<div class="col-xs-12  col-md-6">	
+				  	<button type="submit" class="btn btn-default btn-success btn-block">Buscar</button>
+				  	<input type="hidden" name="page" id="page" value="1" />
+				</div>
+			</form>		
+	</div>
+	{% endif %}
+	<!--<div class="row"> <h5 style="color:#777" >o Explorar: </h5 ></div> -->
+	{% if tag %} <!-- este bloque es el de listado de sector -->
+	<div class="row">
+		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Más consenso</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+		</ul>
+	</div>
+	{% else %} <!-- este bloque es el de listado de todas.php -->
+	<div class="row">
+		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinando(8-20 votos)</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+		</ul>
+	</div>
+	{% endif %}
+
+	{% include 'listados.html' %}
+	
+	{% autoescape false %}{{ paginado }}{% endautoescape %}
+
+	{% if user %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h4 class="text-center"> ¿Echas en falta alguna medida en este objetivo? </h4>
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php?objetivo={{tag}}">SUBIR UNA NUEVA MEDIDA</a>
+		</div>
+	</div>	
+	{% else %}
+	<div class="row">
+		<div class="col-xs-12">
+			<a href="login.php"> Tienes que estar identificado para hacer una propuesta. ¡Registrate y participa!</a>
+		</div>
+	</div>
+	{% endif %}
+
+	
+
+	<script>
+	
+	$('#myTab a').click(function (e) {
+	  	e.preventDefault();
+	  	$(this).tab('show');
+	})
+	</script>
+{% endblock%}
