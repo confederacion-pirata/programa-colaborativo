@@ -3,16 +3,7 @@ include_once "lib/functions.php";
 
 if(isset ($_GET['barrio'])){
 
-$tag = $_GET['barrio'];	
-if ($tag=="Oliver-Valdefierro"){
-	$etiqueta=$tag;
-}elseif ($tag=="Actur-Rey-Fernando"){
-	$etiqueta="Actur-Rey Fernando";
-}elseif ($tag=="Montanana"){
-	$etiqueta="Montañana";
-}else{
-	$etiqueta = str_replace ( '-' ,' ', $tag);
-}
+$etiqueta = str_replace ( '-' ,' ', $tag);
 
 $template = $twig->loadTemplate('barrios.html');
 
