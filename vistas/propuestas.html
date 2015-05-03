@@ -2,9 +2,9 @@
 
 {% block title %}
 	{% if tag %}
-		Propuestas de {{tag}} 
+		Propostes de {{tag}} 
 	{%else%}
-		Propuestas de programa
+		Propostes de programa
 	{% endif %}
 	{% endblock %} 
 {% block scripts %}
@@ -65,7 +65,7 @@ $(document).ready(function() {
 	{% if tag %}
 	<div class="row">
 		<div class="col-xs-12">
-			<h2 > <small><i>objetivo:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
+			<h2 > <small><i>objectiu:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
 			<p class="objetivo-descripcion"> </p>
 
 		</div>
@@ -76,7 +76,7 @@ $(document).ready(function() {
 
 	<div class="row">
 		<div class="col-xs-12">
-			<h2 > <small>Hay {{totalPropuestas}} propuestas en total en nuestra base de datos</small> </h2>
+			<h2 > <small>Hi ha {{totalPropuestas}} propostes en total</small> </h2>
 		</div>
 	</div>
 
@@ -86,12 +86,12 @@ $(document).ready(function() {
 				<div class="col-xs-12  col-md-6">		
 				  	<div class="form-group">			    	
 				  		
-						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar..." />
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Cercar..." />
 				    	
 					</div>
 				</div>
 				<div class="col-xs-12  col-md-6">	
-				  	<button type="submit" class="btn btn-default btn-success btn-block">Buscar</button>
+				  	<button type="submit" class="btn btn-default btn-success btn-block">Cercar</button>
 				  	<input type="hidden" name="page" id="page" value="1" />
 				</div>
 			</form>		
@@ -101,19 +101,19 @@ $(document).ready(function() {
 	{% if tag %} <!-- este bloque es el de listado de sector -->
 	<div class="row">
 		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
-  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
-  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Más consenso</a></li>
-  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
-  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Més valorades</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Més consens</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Més debatudes</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Més recents</a></li>  
 		</ul>
 	</div>
 	{% else %} <!-- este bloque es el de listado de todas.php -->
 	<div class="row">
 		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
-  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
-  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinando(8-20 votos)</a></li>
-  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
-  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Més valorades</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinant (8-20 vots)</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Més debatudes</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Més recents</a></li>  
 		</ul>
 	</div>
 	{% endif %}
@@ -125,14 +125,14 @@ $(document).ready(function() {
 	{% if user %}
 	<div class="row">
 		<div class="col-xs-12">
-			<h4 class="text-center"> ¿Echas en falta alguna medida en este objetivo? </h4>
-			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php?objetivo={{tag}}">SUBIR UNA NUEVA MEDIDA</a>
+			<h4 class="text-center"> Trobes a faltar alguna mesura en aquest objectiu? </h4>
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php?objetivo={{tag}}">ENVIAR UNA NOVA MESURA</a>
 		</div>
 	</div>	
 	{% else %}
 	<div class="row">
 		<div class="col-xs-12">
-			<a href="login.php"> Tienes que estar identificado para hacer una propuesta. ¡Registrate y participa!</a>
+			<a href="login.php"> Has d'estar registrat per fer una proposta. Participa-hi!</a>
 		</div>
 	</div>
 	{% endif %}

@@ -16,10 +16,10 @@ $(document).ready(function() {
           },
         messages:{
           email_login: {
-            required: "Tienes que escribir un email",
+            required: "Has d'indicar un correu",
           }, 
           pass_login: {
-            required: "Escribe la contraseña",
+            required: "Escriu la contrasenya",
           }
         },  
         }
@@ -37,16 +37,16 @@ $(document).ready(function() {
         },
         messages:{
           email_signup: {
-            remote: "Este email ya está registrado",
+            remote: "Aquest correu ja està registrat",
           },
           nombre: {
-            required: "Escribe tu nombre",
+            required: "Escriu el teu nom",
           },
           apellidos: {
-            required: "Escribe tus apellidos",
+            required: "Escriu els teus cognoms",
           }, 
           pass_signup: {
-            required: "Escribe una contraseña",
+            required: "Escriu una contrasenya",
           }
         },
     });
@@ -59,10 +59,10 @@ $(document).ready(function() {
             $('.signup-error').show();
     }
     if(getUrlVars()['page']=='registered'){            
-            $('#login-intro-msg').empty().html('<span style="color:#00a48c; font-size:1.5em">¡Registro completado con éxito! Entra ahora y estrena tu nombre de usuario y contraseña</span>');
+            $('#login-intro-msg').empty().html('<span style="color:#00a48c; font-size:1.5em">Registre completat amb èxit! Entra ara i estrena el teu usuari!</span>');
     }
     if(getUrlVars()['page']=='email'){            
-            $('#login-intro-msg').empty().html('<span style="color:#00a48c; font-size:1.1em">¡Te hemos enviado el email con la nueva clave. Mira en la carpeta de spam si no lo encuentras!</span>');
+            $('#login-intro-msg').empty().html('<span style="color:#00a48c; font-size:1.1em">Hem enviat un correu amb la nova clau al teu correu. Mira al correu brossa si no el trobes!</span>');
     }
 
 });
@@ -85,9 +85,9 @@ $(document).ready(function() {
                 <div class="form-header">
                     <i class="fa fa-user"></i>
                     <h2>Entrar</h2>
-                    <h5 style="color:#555; padding: 0em 1em;"id="login-intro-msg" > Para comentar o enviar medidas es necesario estar registrado en la plataforma. <br/>Pero no te cortes, registrar un nuevo usuario es muy simple</h5>
+                    <h5 style="color:#555; padding: 0em 1em;"id="login-intro-msg" > Per comentar o enviar propostes has de registrar-te. El registre és lliure, per això les decisions finals es prendran mitjançant votació segura.</h5>
                     {% if error %}
-                    <p class="no_login">Usuario o contraseña incorrecta. Inténtalo otra vez.</p>
+                    <p class="no_login">Usuari o contrasenya no vàlids. Intenta-ho de nou.</p>
                     {% endif%}
                 </div>
                 <form id="login_form"  method="post" action="entrar.php">
@@ -102,11 +102,11 @@ $(document).ready(function() {
                 <div class="form-footer">
                     <div class="row">
                         <div class="col-xs-7">                            
-                            <a href="" id="forgot_from_1"><i class="fa fa-unlock-alt"></i><br/>Recordar contraseña</a>
+                            <a href="" id="forgot_from_1"><i class="fa fa-unlock-alt"></i><br/>Recordar contrasenya</a>
                         </div>
                         <div class="col-xs-5">
                             
-                            <a href="" id="signup_from_1"><i class="fa fa-check"></i><br/>Regístrate</a>
+                            <a href="" id="signup_from_1"><i class="fa fa-check"></i><br/>Registra't</a>
                         </div>
                     </div>
                 </div>      
@@ -116,40 +116,36 @@ $(document).ready(function() {
                 <div class="form-header">
                     <i class="fa fa-user"></i>
                     <h2>Alta</h2>
-                    <h5 class="signup-error"> Captcha incorrecto, prueba a registrarte de nuevo </h5>
+                    <h5 class="signup-error"> Captcha incorrecte, prova-ho de nou</h5>
                 </div>
                 <form id="signup_form" method="post" action="alta.php">
                 <div class="form-main">
                     <div class="form-group">
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
-                        <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Apellidos">
-                        <input type="text" name="email_signup" id="email_signup" class="form-control" placeholder="Email">
-                        <input type="password" name="pass_signup" id="pass_signup" class="form-control" placeholder="Contraseña">
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nom">
+                        <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Cognoms">
+                        <input type="text" name="email_signup" id="email_signup" class="form-control" placeholder="Correu">
+                        <input type="password" name="pass_signup" id="pass_signup" class="form-control" placeholder="Contrasenya">
                     </div>
 					<div class="g-recaptcha" data-sitekey="6LerPwMTAAAAAFjtwKyWAlNhLjAZ8-6yS9U1C3hl"></div>
-                    <button id="button_signup" type="submit" class="btn btn-block signin">Registrarse</button>
+                    <button id="button_signup" type="submit" class="btn btn-block signin">Registrar-se</button>
                 </form>
                 </div>
                 <div class="form-footer">
-                    <p>De conformidad con lo dispuesto en la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal, te informamos de que los datos personales que nos proporciones así como aquellos que nos facilites en un futuro serán incorporados a un fichero automatizado de datos de carácter personal responsabilidad de "Totes amb Burjassot", con la finalidad de gestionar las comunicaciones que podamos realizar contigo.
-                        </p>
-                    <p>Para ejercitar los derechos de acceso, rectificación, oposición y cancelación reconocidos por la legislación vigente, el interesado deberá realizar una comunicación a contacte@totesamburjassot.net, indicando como asunto “Protección de datos”.</p>
-
-                    <p>Asumimos que al registrarte estás conforme con estas advertencias legales.</p>
+                    <p>Asumimos que al registrarte estás conforme amb el nostre avís legal.</p>
                 </div>      
             </div>
 
             <div id="forgot">
                 <div class="form-header">
                     <i class="fa fa-user"></i>
-                    <h2>Recuperar contraseña</h2>
+                    <h2>Recuperar contrasenya</h2>
                 </div>
                 <div class="form-main">
                 <form id="form_forgot" method="post" action="forgot.php">
                     <div class="form-group">
                         <input type="text" name="email_forgot"id="email_forgot" class="form-control" placeholder="Email">
                     </div>
-                    <button id="button_forgot" type="submit" class="btn btn-block signin">Recuperar contraseña</button>
+                    <button id="button_forgot" type="submit" class="btn btn-block signin">Recuperar contrasenya</button>
                 </form>
                 </div>  
             </div>

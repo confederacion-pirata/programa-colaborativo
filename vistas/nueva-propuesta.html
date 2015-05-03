@@ -1,6 +1,6 @@
 {% extends "base_envia.html" %}
 
-{% block title %} Nueva propuesta {% endblock %}
+{% block title %} Nova proposta {% endblock %}
 {% block scripts %}
 
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
@@ -39,10 +39,10 @@ R.scaleAll(0.6);
 	    },
 	    messages:{
 	      titulo: {
-			required: "Tienes que escribir un título para tu propuesta",
+			required: "Escriu un títol",
 	      },
 	      propuesta: {
-	      	required: "Tiene que elegir un sector",
+	      	required: "Tria un sector",
 	    }
 	}
 	});
@@ -68,7 +68,7 @@ R.scaleAll(0.6);
 			if( typeof distrito != 'undefined' && (distrito.length >5)){ // vienen de una página de distrito a añadir algo
 				$('#step-distritos').show();
 				//$('#step-elige-previous').show();
-				$('#step-distritos h3.titulo1').empty().text('Vas a añadir tu propuesta a este distrito:')
+				$('#step-distritos h3.titulo1').empty().text('Afegiràs una proposta a aquest districte:')
 				
 
                 $('#step-envia').show();
@@ -103,7 +103,7 @@ R.scaleAll(0.6);
 				$('input#'+objetivo).prop('checked', true); 
 				optionIsSelected=true;
 				$('input#'+objetivo).trigger('change');
-				$('#step-elige h3.titulo1').empty().html('Hemos seleccionado por tí el objetivo según la página de donde vienes <strong> Cámbialo si tu medida se encuadra mejor en otro lado</strong>')					
+				$('#step-elige h3.titulo1').empty().html('Hem triat per tu l\'objectiu segons la pàgina d\'on vens.<strong> Modifica-ho si creus que va en un altre.</strong>')					
 				$('#step-elige').fadeIn("fast", function(){ 
 					$("html, body").animate({ scrollTop: $('#step-elige').offset().top-100},1000);
 				}); 
@@ -185,23 +185,23 @@ $('.nicEdit-main').height('200px');
 <div class="container principal">
 	<div class="row">
 		<div class="central col-md-8">
-			<h1 > LOS PROBLEMAS Y SOLUCIONES PARA BURJASSOT SON MUCHOS Y COMPLEJOS... <br/>¿QUÉ PROPONES? </h1>
-					<div style="margin-bottom:0px;"  ><p> Te harán falta <strong> sólo 2 sencillos pasos</strong> para enviar una propuesta. Tendrás que introducir tu nueva medida y después asignarla bajo una categoría o un distrito de la ciudad </p>
+			<h1 > ELS PROBLEMES I SOLUCIONS PER A BURJASSOT SÓN MOLTS I COMPLEXOS... <br/>¿QUÈ PROPOSES? </h1>
+					<div style="margin-bottom:0px;"  ><p> Necessitaràs <strong> només dos simples passos</strong> per enviar una proposta. Hauràs d'indicar la teva nova mesura i després assignar-la sota una categoria o un districte de la ciutat </p>
 						<div style="margin-bottom:0px; font-size:1.4em; text-align:center; padding: 4px; background-color:rgb(0, 164, 140); line-height:1.5em; color:white; "> 
-							<strong>OJO: </strong> No olvides que hay mas de 1000 propuestas enviadas<a href="index.php#sectores" style="color:black; text-decoration:underline"> empieza por explorar lo que ya hay</a> antes de enviar algo nuevo: 						
+							<a href="index.php#sectores" style="color:black; text-decoration:underline">Explora les que hi ha</a> abans d'enviar-ne una nova: 						
 							<br/>
-							<strong> Si encuentras una propuesta parecida a la tuya apóyala y aporta tus modificaciones en los comentarios en lugar de duplicar la misma propuesta y empezar con 0 votos.
+							<strong> Si trobes una proposta similar a la teva, dóna-li suport i aporta les teves modificacions en els comentaris.
 							</strong>
 																					
 							<form role="form" id="search-form" action="buscar.php" method="post" target="_blank" style="margin-top:1em;">
 								<div class="row">
 									<div class="col-xs-12  col-md-6">		
 									  	<div class="form-group">						  		
-											<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Palabras clave de tu propuesta" />				    
+											<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Paraules clau" />				    
 										</div>
 									</div>
 									<div class="col-xs-12  col-md-6">	
-									  	<button type="submit" class="btn btn-default btn-success btn-block">¡Buscar!</button>									  	
+									  	<button type="submit" class="btn btn-default btn-success btn-block">Cercar!</button>									  	
 									</div>
 								</div>
 							</form>	
@@ -213,7 +213,7 @@ $('.nicEdit-main').height('200px');
 			<div class="col-md-6 col-md-offset-1 col-xs-10 col-xs-offset-1">
 				<div class="checkbox">
 			    <label style="font-size:1.3em">
-			      <input type="checkbox" name="hebuscado" id="hebuscado"> <strong>De verdad, de verdad que he buscado propuestas parecidas a la que tengo en mente y no he encontrado ninguna similar a la mía :-)</strong>
+			      <input type="checkbox" name="hebuscado" id="hebuscado"> <strong>De veritat, no he trobat cap que s'assembli :-)</strong>
 			    </label>
 			  </div>
 			</div>
@@ -225,26 +225,26 @@ $('.nicEdit-main').height('200px');
 				<div id="step-escribe">
 					
 						
-					    		<h3>1. Comienza escribiendo tu nueva medida de una forma clara y concisa: </h3>	
+					    		<h3>1. Descriu la teva proposta de forma clara i breu: </h3>	
 					<div class="col-xs-10 col-md-offset-1">
 					  <div class="form-group">
-					    <label for="titulo">Título *</label>
+					    <label for="titulo">Títol *</label>
 					    <input type="text" name ="titulo" class="form-control" id="titulo"
-					           placeholder="Título de la propuesta">
+					           placeholder="Títol de la proposta">
 					  </div>
 					</div>
 					
 					<div class="col-xs-10 col-md-offset-1">
 					  <div class="form-group">
-					    <label for="propuesta">Escribe la propuesta *</label>
+					    <label for="propuesta">Escriu la proposta *</label>
 					    <textarea class="form-control" name="propuesta" id="propuesta" rows="10"></textarea> 
 					  </div>
-					  <div> <h4> Puedes clasificar la propuesta como asociada a un distrito de Burjassot o en general para toda la ciudad pero asociada a un objetivo </h4> </div>
+					  <div> <h4> Pots classificar la teva proposta com associada a un districte de Burjassot o en general per a tota la ciutat associada a un objectiu </h4> </div>
 					  <div class="col-sm-5" style="margin-top:5px">
-					  	<a href="#" id="continue1" class="btn-lg btn-block btn btn-success"> Para toda la ciudad</a> 
+					  	<a href="#" id="continue1" class="btn-lg btn-block btn btn-success"> Per tota la ciutat</a> 
 					  </div>
 					  <div class="col-sm-5" style="margin-top:5px">
-					  	<a href="#" id="continue2" class="btn-lg btn-block btn btn-success"> Asociada a un distrito</a>
+					  	<a href="#" id="continue2" class="btn-lg btn-block btn btn-success"> Associada a un districte</a>
 					  </div>
 					</div>
 				</div>			
@@ -258,8 +258,8 @@ $('.nicEdit-main').height('200px');
 		<div class="row">
 			<div id="step-elige-previous">
 				<div class="col-xs-12" >
-					<small> 2. El paso 2 nos lo hemos saltado porque parece que tu propuesta se centra en un distrito. <br/>
-					Si nos hemos equivocado y tu propuesta es para toda la ciudad <a href="#" id="show-step-elige">pulsa aquí y podrás elegir la categoría:</a> </small>
+					<small> 2. La teva proposta es centra en un districte, ens saltem el pas 2. <br/>
+					Si ens hem equivocat i és per tota la ciutat <a href="#" id="show-step-elige">prem aquí i escull la seva categoria:</a> </small>
 				</div>
 			</div>
 		</div>
@@ -267,34 +267,34 @@ $('.nicEdit-main').height('200px');
 		<div class="row">
 			<div id="step-elige">
 				<div class="col-xs-12" id="lista-objetivos">
-					<h3 class="titulo1"> 2. AHORA ELIGE <strong>UN OBJETIVO </strong>  DONDE ENCUADRAR TU PROPUESTA: </h3>
+					<h3 class="titulo1"> 2. Tria <strong>un objectiu </strong> per a la teva proposta: </h3>
 					<div class="form-group" id="form-seleccion-objetivos"  >
 					<input type="radio" name="sector" class=" " id="empty_radio" value="" checked style="display:none">
 						<div class="row"> 		    		
 							<div class="col-md-6" >
 								<div class="apuesta" id="lista-objetivos-derechos-equidad">
-									<h3> Derechos sociales y Equidad</h3>
+									<h3> Drets socials i equitat</h3>
 								</div>
 							</div>
 							<div class="col-md-6" >
 								<div class="apuesta" id="lista-objetivos-ciudad-sostenible">
-									<h3> Ciudad sostenible, cohesionada y cercana </h3>
+									<h3> Ciutat sostenible, cohesionada i propera </h3>
 								</div>
 							</div>
 						</div>
 						<div class="row"> 		
 							<div class="col-md-6" >
 								<div class="apuesta" id="lista-objetivos-gobierno-democratico">
-									<h3> Gobierno Democrático, transparente y eficaz</h3>
+									<h3> Govern democràtic, transparent i eficaç</h3>
 								</div>
 							</div>
 							<div class="col-md-6" >
 								<div class="apuesta" id="lista-objetivos-economia-empleo">
-									<h3> Economía sostenible y empleo de calidad</h3>
+									<h3> Economia sostenible i treball de qualitat</h3>
 								</div>
 								<div class="apuesta" id="objetivo-sin-objetivo">
 									<br/>
-									<label class="objetivo" style="color:#000"><input type="radio" name="sector" class="" id="" value="sin-categoria"> No sé donde encajar esta propuesta. </label>
+									<label class="objetivo" style="color:#000"><input type="radio" name="sector" class="" id="" value="sin-categoria"> No sé on encaixar-la. </label>
 								</div>
 							</div>
 						</div>
@@ -303,14 +303,14 @@ $('.nicEdit-main').height('200px');
 			</div>
 		</div>
 		<div id="step-distritos">
-			<h3 class="titulo1"> 3. Tu medida está centrada en un distrito: </h3>
+			<h3 class="titulo1"> 3. La teva mesura es centra un districte: </h3>
 			<div class="row" id="distritos-inner">				
 				<div class="col-md-6">
 					<div id="info-distrito">
 						<div id="nombre-distrito">
 							<div class="form-group">
 								<select value="" id="distritoSelect" name="barrio" class="form-control">
-									<option value="">Elige distrito </option>
+									<option value="">Tria districte </option>
 								</select>
 							</div> 
 						</div> 
@@ -330,10 +330,10 @@ $('.nicEdit-main').height('200px');
 		</div>
 		<div id="step-envia">
 			<div class="row">
-						<h3>4. ¡Ya has terminado! Ahora pulsa enviar para mandarnos tu propuesta.</h3>
+						<h3>4. Fet! Prem per enviar la teva proposta.</h3>
 						
 						<button type="submit" id="enviar" class="btn-lg btn-block btn btn-success">Enviar</button>
-						<span class="mini-texto-ayuda"> *Nota: una vez pulses enviar no podrás volver a editar tu propuesta</span>
+						<span class="mini-texto-ayuda"> *Nota: un cop ho facis ja no podràs editar la teva proposta</span>
 			</div>
 		</div>
 				

@@ -2,9 +2,9 @@
 
 {% block title %}
 	{% if tag %}
-		Propuestas de {{tag}} 
+		Propostes de {{tag}} 
 	{%else%}
-		Propuestas de programa
+		Propostes de programa
 	{% endif %}
 	{% endblock %} 
 {% block scripts %}
@@ -56,12 +56,12 @@ $(document).ready(function() {
 				  		{% if buscar %}
 				    	<input type="text" class="form-control" id="buscar" name="buscar" value="{{buscar}}" />
 						{%else%}
-						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="búsqueda...(ojo: los acentos importan)" />
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="cerca...(ull: els accents importen)" />
 				    	{% endif %}
 					</div>
 				</div>
 				<div class="col-xs-12  col-md-6">	
-				  	<button type="submit" class="btn btn-default btn-success btn-block">¡Pim, pam, propuesta!</button>
+				  	<button type="submit" class="btn btn-default btn-success btn-block">Fes una proposta!</button>
 				  	<input type="hidden" name="page" id="page" value="1" />
 				</div>
 			</form>		
@@ -69,7 +69,7 @@ $(document).ready(function() {
 	{% if totalPropuestas %}
 	<div class="row">
 		<div class="col-xs-12">
-			<h2 > <small>Hay {{totalPropuestas}} propuestas en total en nuestra base de datos</small> </h2>	
+			<h2 > <small>Hi ha {{totalPropuestas}} propostes</small> </h2>	
 		</div>
 	</div>
 	{% endif %}

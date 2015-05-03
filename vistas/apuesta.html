@@ -2,9 +2,9 @@
 
 {% block title %}
 	{% if tag %}
-		Propuestas de {{tag}} 
+		Propostes de {{tag}} 
 	{%else%}
-		Propuestas de programa
+		Propostes de programa
 	{% endif %}
 	{% endblock %} 
 {% block scripts %}
@@ -36,14 +36,14 @@ $(document).ready(function() {
 {% block content %}
 	<div class="row">
 		<div class="col-xs-12">
-			<h2 > <small><i>Área temática:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
+			<h2 > <small><i>Àrea temàtica:</i></small> <br/><span class="objetivo-titulo"> </span></h2>
 			<p class="objetivo-descripcion"> </p>
 
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-		Esta área se compone de los siguientes objetivos que puedes explorar:
+		Aquest àrea es composa dels següents objectius que pots explorar:
 		</div>		
 	</div>
 	<div class="row" id="programa" >
@@ -59,14 +59,14 @@ $(document).ready(function() {
 	{% if user %}
 	<div class="row">
 		<div class="col-xs-12">
-			<h4 class="text-center"> ¿Te gustaría proponer algo para Burjassot? </h4>
-			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php">SUBIR UNA NUEVA MEDIDA</a>
+			<h4 class="text-center">Què vols proposar per Burjassot? </h4>
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php">PUJAR UNA NOVA IDEA</a>
 		</div>
 	</div>	
 	{% else %}
 	<div class="row">
 		<div class="col-xs-12">
-			<a href="login.php"> Tienes que estar identificado para hacer una propuesta. ¡Registrate y participa!</a>
+			<a href="login.php"> Has de tenir compte per fer una proposta. Registra't i participa-hi!</a>
 		</div>
 	</div>
 	{% endif %}

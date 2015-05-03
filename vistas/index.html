@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Programa colaborativo {% endblock %}
+{% block title %}Programa col·laboratiu {% endblock %}
 
 {% block scripts %}
 <script>
@@ -75,37 +75,37 @@
 
 	<div class="row" >
 		<div class="col-md-10 col-md-offset-1 " id="intro-text" >
-			<p class="text-left">Bienvenido/a a la plataforma colaborativa del programa de Totes amb Burjassot. <br/>Aquí podréis <strong> comentar, añadir y votar propuestas:</strong> necesitamos vuestras ideas para <strong>componer el programa que Burjassot necesita. <br/>La plataforma estará abierta hasta el  </strong>  <span style="text-decoration:line-through;">día 20 de marzo </span> </strong> <strong style="color:red">Sábado 21 de Marzo a las 23:59</strong> ¡Muchas gracias por participar!</p>
+			<p class="text-left">Benvingut/da a la plataforma col·laborativa del programa de Totes amb Burjassot. <br/>Aquí pots <strong> comentar, afegir i votar propostes:</strong> necessitem les teves idees per <strong>composar el programa que Burjassot necessita. Gràcies per participar-hi!</p>
 		</div>
 	</div>	
 	
 	<div class="row" >
 		<div class="col-md-4 col-md-offset-1 col-sm-6" >
-			<a class="btn btn-success btn-lg btn-block" href="#programa" style="margin-top: 2em;">EXPLORA LAS PROPUESTAS</a>
+			<a class="btn btn-success btn-lg btn-block" href="#programa" style="margin-top: 2em;">EXPLORA LES PROPOSTES</a>
 		</div>
 		<div class="col-md-4 col-md-offset-2 col-sm-6">
-			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php" style="margin-top: 2em;">SUBE UNA NUEVA PROPUESTA</a>
+			<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php" style="margin-top: 2em;">PUJA UNA NOVA PROPOSTA</a>
 		</div>
 	</div>	
 	
 
-		<h2 class="custom" style="font-size:1.8em; text-align:left">Ya hemos recibido <strong>{{ totalPropuestas }} propuestas.</strong> Algunas son: </h2>
+		<h2 class="custom" style="font-size:1.8em; text-align:left">Hem rebut <strong>{{ totalPropuestas }} propostes.</strong> Algunes són: </h2>
 
 
 	<div class="row">
 		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
-  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
-  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinando(8-20 votos)</a></li>
-  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
-  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Més valorades</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Germinant (8-20 vots)</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Més debatudes</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Més recents</a></li>  
 		</ul>
 	</div>
 	{% include 'listados.html' %}
 	<!--</div>  bug en listados parece que falta este div? -->
 	<div class="row">
 	 	<div class="col-xs-12 col-lg-8  col-lg-offset-2" style="text-align:center" > 
-	 		<h3>Estas son sólo algunas de las propuestas: <a href="todas.php"> míralas todas aquí</a> </h3>
-	 		<h4><a href="#programa"> También puedes explorar el programa por objetivos</a> o buscar:</h4>
+	 		<h3>Aquestes són algunes de les propostes: <a href="todas.php">llegeix-les aquí:</a></h3>
+	 		<h4><a href="#programa"> També pots explorar el programa per objectius</a> o cercar:</h4>
 	 	</div>
 	</div>
 	<div class="row" style="padding-top:2em;">		
@@ -113,11 +113,11 @@
 			<form role="form" id="search-form" action="buscar.php" method="post">
 				<div class="col-xs-12  col-md-6">		
 				  	<div class="form-group">	    	
-						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar...(ojo: los acentos importan)" />				    	
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Cercar... (ull: els accents importen)" />				    	
 					</div>
 				</div>
 				<div class="col-xs-12  col-md-6">	
-				  	<button type="submit" class="btn btn-default btn-success btn-block">¡Buscar!</button>
+				  	<button type="submit" class="btn btn-default btn-success btn-block">Cercar</button>
 				  	<input type="hidden" name="page" id="page" value="1" />
 				</div>
 			</form>	
@@ -127,8 +127,7 @@
 	<div id="programa">
 		<div class ="row">
 		 	<div class="col-xs-12"  > 
-				<a name="sectores"></a><h2 class="custom">Explora el programa por objetivos</h2>
-			<h4>El programa se estructura en 4 grandes áreas. Cada área a su vez se compone de objetivos y dentro de estos objetivos se encuadran las medidas. Las apuestas y los objetivos han sido definidos en los foros sectoriales. En esta plataforma web vamos a proponer y a votar las medidas concretas.</h4>
+				<a name="sectores"></a><h2 class="custom">Explora el programa per objectius</h2>
 			</div>
 		</div>
 		<div class="row" id="areas-container">
@@ -139,7 +138,8 @@
 <div id="distritos">
 	<div class="container">
 		<div class="row">
-			<h2 class="custom">Explora el programa por distritos</h2>
+			<h2 class="custom">Explora el programa per districtes
+			</h2>
 		</div>
 		<div class="row" id="distritos-inner">
 			<div class="col-sm-6 hidden-xs">
@@ -152,15 +152,15 @@
 	        		<div id="nombre-distrito">
 	        			<div class="form-group">
 						      <select value="none" id="distritoSelect" class="form-control">
-						        <option value="none">Click para seleccionar distrito</option>
+						        <option value="none">Tria districte</option>
 						      </select>
 						  </div> 
 						</div> 
 	        		<div id="datos-distrito"> </div>
 	        	</div>
-	        	<a class="btn btn-default btn-lg btn-success disabled" href="#" id="ir_propuestas_barrios" role="button">¡Explora las propuestas de este distrito!</a>
+	        	<a class="btn btn-default btn-lg btn-success disabled" href="#" id="ir_propuestas_barrios" role="button">Explora les propostes d'aquest districte!</a>
 	        	<div class="info-ayuda">
-	        		Nota: Sólo algunas de las propuestas incluidas están asociadas a un distrito en concreto, un gran número hacen referencia a toda la ciudad.
+	        		Nota: només algunes de les propostes incloses estan associades a un districte en concret, un gran número fan referència a tota la ciutat.
 	        	</div>
 	        </div>
 		</div>

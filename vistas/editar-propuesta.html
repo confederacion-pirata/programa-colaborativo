@@ -1,6 +1,6 @@
 {% extends "base2.html" %}
 
-{% block title %} Editar propuesta {% endblock %}
+{% block title %} Editar proposta {% endblock %}
 {% block scripts %}
 
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
@@ -26,10 +26,10 @@ $(document).ready(function() {
 	    },
 	    messages:{
 	      titulo: {
-			required: "Tiene que poner un título",
+			required: "Ha de tenir un titol",
 	      }/*,
 	      sector: {
-	      	required: "Tiene que elegir un sector",
+	      	required: "Ha de tenir un sector",
 	    }*/
 	}
 	});
@@ -75,15 +75,15 @@ $(document).ready(function() {
 
 		<div class="col-xs-10 col-md-offset-1">
 		  <div class="form-group">
-		    <label for="título">Título *</label>
+		    <label for="título">Títol *</label>
 		    <input type="text" name ="titulo" class="form-control" id="titulo"
-		           placeholder="Título de la propuesta" value="{{propuesta.titulo}}">
+		           placeholder="Títol de la proposta" value="{{propuesta.titulo}}">
 		  </div>
 		</div>
 		
 		<div class="col-xs-10 col-md-offset-1">
 		  <div class="form-group">
-		    <label for="propuesta">Escribe la propuesta *</label>
+		    <label for="propuesta">Escriu la proposta *</label>
 		    <textarea class="form-control" name="propuesta" id="propuesta" rows="10">{{propuesta.propuesta}}</textarea> 
 		  </div>
 		</div>
@@ -92,36 +92,36 @@ $(document).ready(function() {
 		  <div class="form-group" id="form-seleccion-objetivos">
 		    
 			<div style="clear:both"></div>
-			Selecciona un objetivo (opcional)
+			Tria un objectiu (opcional)
 			<div id="#lista-objetivos">
 				
 					<input type="radio" name="sector" class=" " id="empty_radio" value="" checked style="display:none">
 					<div class="row"> 		    		
 						<div class="col-md-6" >
 							<div class="apuesta" id="lista-objetivos-derechos-equidad">
-								<h3> Derechos sociales y Equidad</h3>
+								<h3> Drets socials i equitat</h3>
 							</div>
 						</div>
 						<div class="col-md-6" >
 							<div class="apuesta" id="lista-objetivos-ciudad-sostenible">
-								<h3> Ciudad sostenible, cohesionada y cercana </h3>
+								<h3> Ciutat sostenible, cohesionada i propera</h3>
 							</div>
 						</div>
 					</div>
 					<div class="row"> 		
 						<div class="col-md-6" >
 							<div class="apuesta" id="lista-objetivos-gobierno-democratico">
-								<h3> Gobierno Democrático, transparente y eficaz</h3>
+								<h3> Govern democràtic, transparent i eficaç</h3>
 							</div>
 						</div>
 						<div class="col-md-6" >
 							<div class="apuesta" id="lista-objetivos-economia-empleo">
-								<h3> Economía sostenible y empleo de calidad</h3>
+								<h3> Economia sostenible i treball de qualitat</h3>
 							</div>
 							<div class="apuesta">
 								<label class="objetivo" style="color:red; margin-top:2em;">
 									<input type="radio" name="sector" class="'+
-			'apuesta" id="" value="" > No colocar bajo ningun objetivo: medida sólo de barrio </label>'
+			'apuesta" id="" value="" > No indicar objectiu: mesura només de barri</label>'
 							</div>
 						</div>
 					</div>
@@ -133,10 +133,10 @@ $(document).ready(function() {
 
 		<div class="col-xs-10 col-md-offset-1">
 		  <div class="form-group">
-		    <label for="desarrollo">Selecciona un distrito (opcional)</label>
+		    <label for="desarrollo">Tria un districte (opcional)</label>
 
 		    <select class="form-control" name="barrio" id="distritoSelect">
-			  <option value="">Selecciona un Distrito</option>
+			  <option value="">Tria un districte</option>
 			  
 			</select>
 		    

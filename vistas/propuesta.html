@@ -250,7 +250,7 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(data) {
 					$.each(data, function (clave, valor){
-						$('#enmienda_nueva').html('<div class="row enmienda"><div id ="enm-votos-{{ enmienda.id }}"class="col-xs-1 votos">1</div><div class="col-xs-1"><div class="enm_favor"><i id="enm-fav-{{ enmienda.id }}" class="fa fa-angle-up fa-lg active"></i></div><div class="enm_contra"><i id="enm-con-{{ enmienda.id }}"class="fa fa-angle-down fa-lg inactivo"></i></div></div> <div class="col-xs-10"><div class="enm_autor"> comentario de '+ valor.nombre +' '+ valor.apellidos +'</div><div class="enm_texto">'+ texto_enmienda +'</div></div></div>');
+						$('#enmienda_nueva').html('<div class="row enmienda"><div id ="enm-votos-{{ enmienda.id }}"class="col-xs-1 votos">1</div><div class="col-xs-1"><div class="enm_favor"><i id="enm-fav-{{ enmienda.id }}" class="fa fa-angle-up fa-lg active"></i></div><div class="enm_contra"><i id="enm-con-{{ enmienda.id }}"class="fa fa-angle-down fa-lg inactivo"></i></div></div> <div class="col-xs-10"><div class="enm_autor"> comentari de '+ valor.nombre +' '+ valor.apellidos +'</div><div class="enm_texto">'+ texto_enmienda +'</div></div></div>');
 						$('#texto_enmienda').val('');
 						$('html, body').stop().animate({
         					scrollTop: $('#enmienda_nueva').offset().top-100
@@ -418,9 +418,9 @@ doNotCopy:true,hashAddressBar:false});</script>
 					{% else %}
 					<div class="autor">
 						{% if propuesta.id_rol == 2 %}<strong>{% endif %}
-						Presentada por {{ propuesta.nombre}} {{ propuesta.apellidos}}
+						Presentada per {{ propuesta.nombre}} {{ propuesta.apellidos}}
 						{% if propuesta.id_rol == 2 %}</strong>{% endif %}
-						<div id="nota-programa">  (Medida proveniente del grupo de trabajo de programa sectorial o territorial correspondiente) </div>
+						<div id="nota-programa">  (mesura provinent del grup de treball de programa sectorial o territorial corresponent) </div>
 					{% endif %}
 					{% if user and user.idRol == 2 %}
 						<a class="borrar-propuesta" href="borrar-propuesta.php?id={{ propuesta.id }}&propuestaId={{propuesta.id}}">BORRAR</a>
@@ -438,7 +438,7 @@ doNotCopy:true,hashAddressBar:false});</script>
 	</div>
 	
 	{% if autor or user.idRol == 2 %}
-	<div class="row"><a href="editar-propuesta.php?id={{ propuesta.id }}">Editar propuesta</a></div>
+	<div class="row"><a href="editar-propuesta.php?id={{ propuesta.id }}">Editar proposta</a></div>
 	<hr class="hr">
 	
 	{% endif %}
@@ -454,7 +454,7 @@ doNotCopy:true,hashAddressBar:false});</script>
 	<hr class="hr">
 		{% endif %}
 	<form id="comentar">
-		<div class="row"><strong>¿Qué te ha parecido?</strong></div>
+		<div class="row"><strong>Què et sembla?</strong></div>
 		<div class="row">
 			<input type="hidden" name="user" value="{{ user.id }}">
 			<input type="hidden" name="propuesta" value="{{ propuesta.id }}">
@@ -467,11 +467,11 @@ doNotCopy:true,hashAddressBar:false});</script>
 	{% else %}
 	<div class="row">
 		<h5><strong>Identifícate</strong> </h5>
-		<a href="login.php">Tienes que estar identificado para poder votar y valorar la propuesta.</a>
+		<a href="login.php">Has d'identificar-te per votar i valorar la proposta.</a>
 	</div>
 	{% endif %}
 	<div class="row">
-		<h5><strong>¿Te gusta esta medida para Burjassot? ¡Compártela!</strong> </h5>
+		<h5><strong>T'agrada aquesta mesura per Burjassot? Comparteix-la!</strong> </h5>
 		<a href="https://twitter.com/share" class="twitter-share-button" data-via="totesamburja" data-lang="es" data-count="none" data-hashtags="TotesAmbBurjassot" >Twittear</a>
 		
 		<div class="fb-share-button" data-layout="button"></div>
@@ -502,18 +502,18 @@ doNotCopy:true,hashAddressBar:false});</script>
 			{% endif%}
 					<div class="enm_autor">
 					{% if enmienda.grupo > 0 %}
-					<img src="static/images/grupo{{ enmienda.grupo}}.png" alt="Grupo {{ enmienda.apellidos}}" title="Grupo {{ enmienda.apellidos}}"/> comentario del Grupo {{ enmienda.apellidos}}
+					<img src="static/images/grupo{{ enmienda.grupo}}.png" alt="Grup {{ enmienda.apellidos}}" title="Grup {{ enmienda.apellidos}}"/> comentari del Grup {{ enmienda.apellidos}}
 					{% else %}
 						{% if propuesta.autor_id == enmienda.autor_id %}
-						<img src="static/images/insignia.png" alt="el autor del comentario es el mismo que envió la medida" /> Comentario de {{ enmienda.nombre}} {{ enmienda.apellidos}}
+						<img src="static/images/insignia.png" alt="l'autor del comentari és el mateix qui envia la mesura" /> Comentari de {{ enmienda.nombre}} {{ enmienda.apellidos}}
 						{% else %}
-						Comentario de {{ enmienda.nombre}} {{ enmienda.apellidos}} 
+						Comentari de {{ enmienda.nombre}} {{ enmienda.apellidos}} 
 						{% endif %}
 						{% if user and user.idRol == 2 %}
-							<a class="borrar-comentario" href="borrar-enmienda.php?id={{ enmienda.id }}&propuestaId={{propuesta.id}}">BORRAR</a>
+							<a class="borrar-comentario" href="borrar-enmienda.php?id={{ enmienda.id }}&propuestaId={{propuesta.id}}">ESBORRAR</a>
 						{% endif %}
 						{% if enmienda.id_rol == 2 %}
-							<span class="moderador"> (facilitador de debate de AhoraBurjassot)</span>
+							<span class="moderador"> (facilitador de debat de AhoraBurjassot)</span>
 						{% endif %}
 					{% endif %}
 					</div>
@@ -523,11 +523,11 @@ doNotCopy:true,hashAddressBar:false});</script>
 					
 					{% if user %}
 					<div class="comentarios-enmiendas">
-						<div class="enlace_comentar"><a href="#" >Responder</a></div>
+						<div class="enlace_comentar"><a href="#" >Respondre</a></div>
 						<form class="row textarea_comentarios">
 							<input type="hidden" class="enmienda_id" name="enmienda" value="{{ enmienda.id }}">
 							<textarea id="texto_comentario" name="texto_comentario" class="form-control" rows="2"></textarea>
-						<a class="btn btn-success boton_comentario">Responder</a>
+						<a class="btn btn-success boton_comentario">Respondre</a>
 						</form>
 					</div>
 					{% endif %}
@@ -555,18 +555,18 @@ doNotCopy:true,hashAddressBar:false});</script>
 					{% endif %}
 							<div class="com_autor">
 							{% if enmienda.grupo > 0 %}
-							<img src="static/images/grupo{{ enmienda.grupo}}.png" alt="Grupo {{ enmienda.apellidos}}" title="Grupo {{ enmienda.apellidos}}"> Respuesta del Grupo {{ enmienda.apellidos}}
+							<img src="static/images/grupo{{ enmienda.grupo}}.png" alt="Grup {{ enmienda.apellidos}}" title="Grup {{ enmienda.apellidos}}"> Resposta del Grup {{ enmienda.apellidos}}
 							{% else %}
 								{% if propuesta.autor_id == comentario.autor_id %}
-								<img src="static/images/insignia.png" alt="el autor del comentario es el mismo que envió la medida"> Respuesta {{ comentario.nombre}} {{ comentario.apellidos}}
+								<img src="static/images/insignia.png" alt="l'autor del comentari és el mateix qui envia la mesura"> Resposta {{ comentario.nombre}} {{ comentario.apellidos}}
 								{% else %}
-								Respuesta de {{ comentario.nombre}} {{ comentario.apellidos}}
+								Resposta de {{ comentario.nombre}} {{ comentario.apellidos}}
 								{% endif %}
 								{% if user and user.idRol == 2 %}
-									<a class="borrar-comentario "href="borrar-comentario.php?id={{ comentario.id }}&propuestaId={{propuesta.id}}">BORRAR</a>
+									<a class="borrar-comentario "href="borrar-comentario.php?id={{ comentario.id }}&propuestaId={{propuesta.id}}">ESBORRAR</a>
 								{% endif %}
 								{% if enmienda.id_rol == 2 %}
-									<span class="moderador"> (facilitador de debate de AhoraBurjassot)</span>
+									<span class="moderador"> (facilitador de debat de AhoraBurjassot)</span>
 								{% endif %}
 							{% endif %}
 							</div>
@@ -588,13 +588,13 @@ doNotCopy:true,hashAddressBar:false});</script>
 	
 	<div class="col-md-6 col-xs-12" style="margin-top:4em;">
 		
-			<h4> Consulta otras medidas en la misma categoría: <strong>{{ propuesta.sector }}  {{ propuesta.barrio }} </strong></h4>
+			<h4> Consulta altres mesures en la mateixa categoria: <strong>{{ propuesta.sector }}  {{ propuesta.barrio }} </strong></h4>
 		<div class="row">
 		<ul class="nav nav-tabs" role="tablist" id="tabsIndex">
-  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Más valoradas</a></li>
-  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Más consenso</a></li>
-  			<li><a href="#debatidas" role="tab" data-toggle="tab">Más debatidas</a></li>
-  			<li><a href="#recientes" role="tab" data-toggle="tab">Más recientes</a></li>  
+  			<li class="active"><a href="#valoradas" role="tab" data-toggle="tab">Més valorades</a></li>
+  			<li><a href="#consensuadas" role="tab" data-toggle="tab">Més consens</a></li>
+  			<li><a href="#debatidas" role="tab" data-toggle="tab">Més debatudes</a></li>
+  			<li><a href="#recientes" role="tab" data-toggle="tab">Més recents</a></li>  
 		</ul>
 	</div>
 		{% include 'listados.html' %}
@@ -602,7 +602,7 @@ doNotCopy:true,hashAddressBar:false});</script>
 	</div>
 
 	<div class="col-md-4 col-md-offset-2 col-xs-12" style="margin-top:10em;">
-		<h4 class="text-center"> ¿Echas en falta alguna medida en el programa? </h4>
-		<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php">SUBIR UNA NUEVA MEDIDA</a>
+		<h4 class="text-center"> Trobes a faltar alguna mesura en el programa? </h4>
+		<a class="btn btn-success btn-lg btn-block" href="nueva-propuesta.php">ENVIAR UNA NOVA MESURA</a>
 	</div>
 {% endblock%}
